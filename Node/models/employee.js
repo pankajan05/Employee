@@ -11,4 +11,6 @@ var Employee = mongoose.model('Employee', {
     salary: { type: Number }
 });
 
-module.exports = Employee ;
+module.exports = {
+    Employee
+} ;
