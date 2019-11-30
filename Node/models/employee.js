@@ -7,6 +7,8 @@ var Employee = mongoose.model('Employee', {
     phoneNO: { type: Number },
     email: { type: String },
     position: { type: String },
-    office: { type: Strin },
+    office: { type: String },
     salary: { type: Number }
-})
+});
+
+module.exports = Employee ;
