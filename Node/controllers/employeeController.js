@@ -57,12 +57,20 @@ router.put('/:id', (req,res) => {
             salary: req.body.salary
         };
 
-        emp.findByIdUpdate(req.params.id, {$ser: emp},{new:true},(err, doc) => {
+        Employee.findOneAndUpdate(req.params.id, {$set: emp},{new:true},(err, doc) => {
             if(!err) { res.send(doc); }
             else { consolel.log('Error in Employee Update : '+ JSON.stringify(err, undefined,2)); }
         });
 });
 
+router.delete('/:id', (req,res) => {
+    if(!ObjectId.isValid(req.params.id))
+        return res.status(400).send('No record with given id : ' + (req.param.id));
 
+    Employee.findOneAndRemove(req.params.id, (err,doc) => {
+        if(!err) { res.send(doc); }
+        else { consolel.log('Error in Employee Update : '+ JSON.stringify(err, undefined,2)); }
+    })
+})
 
 module.exports = router;
