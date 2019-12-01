@@ -1,5 +1,6 @@
 const express = require('express');
 var router = express.Router();
+var ObjectId = require('mongoose').Types.ObjectId;
 
 var { Employee } = require('../models/employee.js');
 
@@ -13,8 +14,8 @@ router.get('/', (req, res)=> {
 });
 
 router.get('/:id', (req,res) => {
-    if(!ObjectId.isValid(req.param.id))
-        return res.status(400).send('No record with given id : ' + $(req.param.id));
+    if(!ObjectId.isValid(req.params.id))
+        return res.status(400).send('No record with given id : ' + (req.param.id));
 
     Employee.findById(req.params.id, (err, doc) => {
         if(!err) { res. send(doc); }
@@ -40,5 +41,28 @@ router.post('/', (req, res) => {
     });
 
 });
+
+router.put('/:id', (req,res) => {
+    if(!ObjectId.isValid(req.params.id))
+        return res.status(400).send('No record with given id : ' + (req.param.id));
+
+        var emp = {
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
+            address: req.body.address,
+            phoneNO: req.body.phoneNO,
+            email: req.body.email,
+            position: req.body.position,
+            office: req.body.office,
+            salary: req.body.salary
+        };
+
+        emp.findByIdUpdate(req.params.id, {$ser: emp},{new:true},(err, doc) => {
+            if(!err) { res.send(doc); }
+            else { consolel.log('Error in Employee Update : '+ JSON.stringify(err, undefined,2)); }
+        });
+});
+
+
 
 module.exports = router;
