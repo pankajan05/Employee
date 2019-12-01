@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../shared/employee.service';
 
 @Component({
-  selector: 'app-employee',
-  templateUrl: './employee.component.html',
-  styleUrls: ['./employee.component.css']
+  selector: 'app-employee-edit',
+  templateUrl: './employee-edit.component.html',
+  styleUrls: ['./employee-edit.component.css']
 })
-export class EmployeeComponent implements OnInit {
+export class EmployeeEditComponent implements OnInit {
 
   constructor(public EmpService: EmployeeService) { }
 
