@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmployeeComponent } from './employee/employee.component';
 import {FormsModule} from '@angular/forms';
 import {MatToolbarModule} from '@angular/material';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {MatToolbarModule} from '@angular/material';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

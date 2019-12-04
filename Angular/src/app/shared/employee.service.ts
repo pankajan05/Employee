@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Employee} from './employee.model';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -7,8 +8,11 @@ import {Employee} from './employee.model';
 export class EmployeeService {
   selectedEmployee: Employee;
   employees: Employee[];
+  readonly baseURL = 'http://localhost:3000/employees';
 
-  constructor() { }
+  constructor(private http : HttpClient) { }
 
-  o
+  postEmployee(emp: Employee) {
+    return this.http.post(this.baseURL, emp);
+  }
 }
