@@ -1,0 +1,75 @@
+<mat-toolbar>Employee Application</mat-toolbar>
+
+<div class="container">
+ <div class="row pt-5">
+   <div class="col-7">
+     <form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
+       <div class="form-group" >
+         <label for="fname">First Name</label>
+         <input type="text" class="form-control" id="fname" #name="ngModel" [(ngModel)]="empService.selectedEmployee.first_name" [ngModelOptions]="{standalone: true}">
+       </div>
+       <div class="form-group">
+         <label for="lname">Last Name</label>
+         <input type="text" class="form-control" id="lname" #name="ngModel" [(ngModel)]="empService.selectedEmployee.last_name" [ngModelOptions]="{standalone: true}" >
+       </div>
+       <div class="form-group">
+         <label for="lname">Address</label>
+         <input type="text" class="form-control" id="address" #name="ngModel" [(ngModel)]="empService.selectedEmployee.address" [ngModelOptions]="{standalone: true}">
+       </div>
+       <div class="form-group">
+         <label for="no">Phone No</label>
+         <input type="number" class="form-control" id="no" #name="ngModel" [(ngModel)]="empService.selectedEmployee.phoneNO" [ngModelOptions]="{standalone: true}">
+       </div>
+       <div class="form-group">
+         <label for="email">Email address</label>
+         <input type="email" class="form-control" id="email" aria-describedby="emailHelp" #name="ngModel" [(ngModel)]="empService.selectedEmployee.email" [ngModelOptions]="{standalone: true}">
+         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+       </div>
+       <div class="form-group">
+         <label for="po">Position</label>
+         <input type="text" class="form-control" id="po" #name="ngModel" [(ngModel)]="empService.selectedEmployee.position" [ngModelOptions]="{standalone: true}">
+       </div>
+       <div class="form-group">
+         <label for="office">office</label>
+         <input type="text" class="form-control" id="office" #name="ngModel" [(ngModel)]="empService.selectedEmployee.office" [ngModelOptions]="{standalone: true}">
+       </div>
+       <div class="form-group">
+         <label for="salary">Salary</label>
+         <input type="number" class="form-control" id="salary" #name="ngModel" [(ngModel)]="empService.selectedEmployee.salary" [ngModelOptions]="{standalone: true}">
+       </div>
+        <div class="form-group row">
+          <button class="btn btn-success m-2 p-1" type="submit">Submit</button>
+          <button class="btn btn-danger m-2 p-1" tylpe="button" (click)="resetForm(employeeForm)">Clear</button>
+        </div>
+     </form>
+   </div>
+   </div>
+
+  <div>
+    <table class="table-responsive pb-5">
+      <thead>
+      <th>FirstName</th>
+      <th>LastName</th>
+      <th>Email</th>
+      <th>PhoneNo</th>
+      <th>Office</th>
+      <th>Position</th>
+      <th>Salary</th>
+
+      </thead>
+      <tr *ngFor="let emp of empService.employees">
+        <td>{{ emp.first_name}}</td>
+        <td>{{ emp.last_name}}</td>
+        <td>{{ emp.email}}</td>
+        <td>{{ emp.phoneNO}}</td>
+        <td>{{ emp.office}}</td>
+        <td>{{ emp.position}}</td>
+        <td>{{ emp.salary}}</td>
+      </tr>
+    </table>
+  </div>
+ </div>
+
+
+
+
