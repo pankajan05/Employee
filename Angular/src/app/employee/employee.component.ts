@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {EmployeeService} from '../shared/employee.service';
 import {NgForm} from "@angular/forms";
+import {Employee} from "../shared/employee.model";
+
 
 declare var M: any;
 
@@ -15,6 +17,7 @@ export class EmployeeComponent implements OnInit {
 
   ngOnInit() {
     this.resetForm();
+    this.refreshEmployeeList();
   }
 
   onSubmit(form: NgForm) {
@@ -39,5 +42,11 @@ export class EmployeeComponent implements OnInit {
       office: '',
       salary: null
     };
+  }
+
+  refreshEmployeeList() {
+    this.empService.getEmployeeList().subscribe((res) => {
+      this.empService.employees = res as Employee[];
+    });
   }
 }

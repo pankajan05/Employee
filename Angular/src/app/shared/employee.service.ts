@@ -10,9 +10,15 @@ export class EmployeeService {
   employees: Employee[];
   readonly baseURL = 'http://localhost:3000/employees';
 
-  constructor(private http : HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   postEmployee(emp: Employee) {
+    console.log(emp);
     return this.http.post(this.baseURL, emp);
+
+  }
+
+  getEmployeeList() {
+    return this.http.get(this.baseURL)
   }
 }

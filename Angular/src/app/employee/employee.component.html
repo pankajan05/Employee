@@ -44,9 +44,32 @@
      </form>
    </div>
    </div>
-   <div class="col-5">
 
-   </div>
+  <div>
+    <table class="table-responsive pb-5">
+      <thead>
+      <th>FirstName</th>
+      <th>LastName</th>
+      <th>Email</th>
+      <th>PhoneNo</th>
+      <th>Office</th>
+      <th>Position</th>
+      <th>Salary</th>
+
+      </thead>
+      <tr *ngFor="let emp of empService.employees">
+        <td>{{ emp.first_name}}</td>
+        <td>{{ emp.last_name}}</td>
+        <td>{{ emp.email}}</td>
+        <td>{{ emp.phoneNO}}</td>
+        <td>{{ emp.office}}</td>
+        <td>{{ emp.position}}</td>
+        <td>{{ emp.salary}}</td>
+      </tr>
+    </table>
+  </div>
  </div>
+
+
 
 

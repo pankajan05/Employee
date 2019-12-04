@@ -7,7 +7,7 @@ import {AlertModule} from 'ngx-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmployeeComponent } from './employee/employee.component';
 import {FormsModule} from '@angular/forms';
-import {MatToolbarModule} from '@angular/material';
+import {MatTableModule, MatToolbarModule} from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
@@ -16,6 +16,7 @@ import {HttpClientModule} from '@angular/common/http';
     EmployeeComponent
   ],
   imports: [
+    MatTableModule,
     MatToolbarModule,
     AlertModule.forRoot(),
     BrowserModule,
