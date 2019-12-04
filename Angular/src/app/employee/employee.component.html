@@ -1,31 +1,52 @@
 <mat-toolbar>Employee Application</mat-toolbar>
 
 <div class="container">
-  <form class="example-form">
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="Favorite food" value="Sushi">
-  </mat-form-field>
-  </form>
-</div>
+ <div class="row pt-5">
+   <div class="col-7">
+     <form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
+       <div class="form-group" >
+         <label for="fname">First Name</label>
+         <input type="text" class="form-control" id="fname" #name="ngModel" [(ngModel)]="empService.selectedEmployee.first_name" [ngModelOptions]="{standalone: true}">
+       </div>
+       <div class="form-group">
+         <label for="lname">Last Name</label>
+         <input type="text" class="form-control" id="lname" #name="ngModel" [(ngModel)]="empService.selectedEmployee.last_name" [ngModelOptions]="{standalone: true}">
+       </div>
+       <div class="form-group">
+         <label for="lname">Address</label>
+         <input type="text" class="form-control" id="address" #name="ngModel" [(ngModel)]="empService.selectedEmployee.address" [ngModelOptions]="{standalone: true}">
+       </div>
+       <div class="form-group">
+         <label for="no">Phone No</label>
+         <input type="number" class="form-control" id="no" #name="ngModel" [(ngModel)]="empService.selectedEmployee.phoneNO" [ngModelOptions]="{standalone: true}">
+       </div>
+       <div class="form-group">
+         <label for="email">Email address</label>
+         <input type="email" class="form-control" id="email" aria-describedby="emailHelp" #name="ngModel" [(ngModel)]="empService.selectedEmployee.email" [ngModelOptions]="{standalone: true}">
+         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+       </div>
+       <div class="form-group">
+         <label for="po">Position</label>
+         <input type="text" class="form-control" id="po" #name="ngModel" [(ngModel)]="empService.selectedEmployee.position" [ngModelOptions]="{standalone: true}">
+       </div>
+       <div class="form-group">
+         <label for="office">office</label>
+         <input type="text" class="form-control" id="office" #name="ngModel" [(ngModel)]="empService.selectedEmployee.office" [ngModelOptions]="{standalone: true}">
+       </div>
+       <div class="form-group">
+         <label for="salary">Salary</label>
+         <input type="number" class="form-control" id="salary" #name="ngModel" [(ngModel)]="empService.selectedEmployee.salary" [ngModelOptions]="{standalone: true}">
+       </div>
+        <div class="form-group row">
+          <button class="btn btn-success m-2 p-1" type="submit">Submit</button>
+          <button class="btn btn-danger m-2 p-1" tylpe="button" (click)="resetForm(employeeForm)">Clear</button>
+        </div>
+     </form>
+   </div>
+   </div>
+   <div class="col-5">
 
-<mat-drawer-container class="example-container" [hasBackdrop]="hasBackdrop.value">
-  <mat-drawer #drawer [mode]="mode.value" >I'm a drawer</mat-drawer>
-  <mat-drawer-content>
-    <mat-form-field>
-      <mat-label>Sidenav mode</mat-label>
-      <mat-select #mode value="side">
-        <mat-option value="push">Push</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Has backdrop</mat-label>
-      <mat-select #hasBackdrop>
-        <mat-option [value]="false">False</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <button mat-raised-button (click)="drawer.toggle()">Toggle drawer</button>
-  </mat-drawer-content>
-</mat-drawer-container>
-
+   </div>
+ </div>
 
 
